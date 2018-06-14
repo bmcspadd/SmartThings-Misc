@@ -1,0 +1,3 @@
+[submodule "SmartThings"]
+	path = SmartThings
+	url = https://github.com/MadMouse/SmartThings
