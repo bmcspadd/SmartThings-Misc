@@ -36,14 +36,12 @@ preferences {
 	section("Tell me when this washer/dryer has stopped..."){
 		input "sensor1", "capability.powerMeter"
 	}
-    
-    section("Notifications") {     
-        input("recipients", "contact", title: "Send notifications to") {
-            input "phone", "phone", title: "Warn with text message (optional)",
-                description: "Phone Number", required: false
-        }
+     
+	section("Set notification options:") {
+        input "sendPushMessage", "bool", title: "Push notifications", required:true, defaultValue:false
+        input "phone", "phone", title: "Send text messages to", required: false
         input "message", "text", title: "Notification message", description: "Laundry is done!", required: true
-	}
+    }
 
 	section("System Variables"){
     	input "minimumWattage", "decimal", title: "Minimum running wattage", required: false, defaultValue: 50
@@ -115,11 +113,11 @@ def powerInputHandler(evt) {
                 
                 log.info message
                 
-                if (location.contactBookEnabled && recipients) {
-                    log.debug "Contact Book enabled!"
-                    sendNotificationToContacts(message, recipients)
+                if (sendPushMessage) {
+                    log.debug "Sending Push Message"
+                    sendPush(message)
                 } else {
-                    log.debug "Contact Book not enabled"
+                    log.debug "Using sms instead"
                     if (phone) {
                         sendSms(phone, message)
                     }
