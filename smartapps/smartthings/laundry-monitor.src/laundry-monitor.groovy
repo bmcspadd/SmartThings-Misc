@@ -20,10 +20,10 @@
  */
 
 definition(
-	name: "Laundry Monitor",
+	name: "Laundry Vibration Monitor",
 	namespace: "smartthings",
 	author: "SmartThings",
-	description: "Sends a message and (optionally) turns on or blinks a light to indicate that laundry is done.",
+	description: "Sends a message and (optionally) turns on or blinks a light to indicate that laundry is done using vibration to detect status.",
 	category: "Convenience",
 	iconUrl: "https://s3.amazonaws.com/smartapp-icons/FunAndSocial/App-HotTubTuner.png",
 	iconX2Url: "https://s3.amazonaws.com/smartapp-icons/FunAndSocial/App-HotTubTuner%402x.png"
