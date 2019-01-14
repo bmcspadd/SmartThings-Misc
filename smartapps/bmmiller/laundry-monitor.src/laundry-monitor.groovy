@@ -23,7 +23,7 @@
 import groovy.time.* 
  
 definition(
-    name: "Laundry Monitor",
+    name: "Laundry Monitor - Power",
     namespace: "bmmiller",
     author: "Brandon Miller",
     description: "Monitor power usage for laundry machines and notify when cycle end has been detected.",
